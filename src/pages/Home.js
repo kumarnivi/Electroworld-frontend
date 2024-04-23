@@ -1,0 +1,34 @@
+import { Fragment, useEffect, useState } from "react";
+import ProductCard from "../components/ProductCard";
+import { useSearchParams } from "react-router-dom";
+import '../css/home.css'
+export default function Home() {
+  const [ products, setProducts] = useState([]); // for store the api datas
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  useEffect(() => {
+    fetch(process.env.REACT_APP_API_URL+'/products?'+searchParams)
+    .then(res => res.json())
+    .then(res => setProducts(res.products))
+  },[searchParams]) // for get the datas 
+
+   return <Fragment> 
+ <section id="products" className="container mt-5">
+        <div className="row ">
+          <div className="home_section">
+          <img src=""/>
+          </div>
+      
+        </div>
+    </section>
+
+
+    <h1 id="products_heading">Latest Products</h1>
+    <section id="products" className="container mt-5">
+        <div className="row">
+          {products.map(product => <ProductCard product={product}/> )}
+        </div>
+    </section>
+   </Fragment>  
+    
+}
