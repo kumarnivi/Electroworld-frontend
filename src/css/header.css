@@ -3,10 +3,11 @@
   width: 100%;
   z-index: 1000;
   top: 0;
+  margin: 0;
 }
 
 nav {
-    background-color: #232f3e;
+    background: linear-gradient(45deg, #751eba, #a56fb3a3);
     padding: 1rem 1rem;
   }
   
@@ -23,7 +24,7 @@ nav {
   
   .input-group {
     width: 90%;
-    margin-right: 35%;
+   margin-left: 20px;
   }
   
   #search_field {
